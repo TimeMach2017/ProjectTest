@@ -1,0 +1,23 @@
+jsd1805n_pm@tedu.cn
+PM2017tarena
+
+鳞次栉比[lín cì zhì bǐ]
+	像鱼鳞和梳子的齿一样，一个挨着一个地排列着，多用来形容房屋等密集：路旁各种建筑~。也		说栉比鳞次。 
+矗立[chù lì]
+	高耸地立着：大街两旁~着高楼大厦。电视发射塔~在山顶上。 
+
+
+使用tomcat作为web服务器，当收到get类型参数时中文乱码解决方法：
+	打开server.xml,在<Service name="Catalina">下的    
+	<Connector connectionTimeout="20000" port="8080" protocol="HTTP/1.1" redirectPort="8443"/>
+	加上useBodyEncodingForURI="true" URIEncoding="UTF-8"
+
+	2.检查代码，下列代码的顺序ContentType的设置要在获取PrintWriter之前
+		response.setContentType("text/html;charset=UTF-8");
+		PrintWriter out = response.getWriter();
+	
+	3.post类型需要对获到的参数String id = new String(request.getParameter("id").getBytes("iso8859-1"),"utf-8");
+
+
+		<script>			function login(){				//得到name输入框对象				var name = document.getElementById("name");				//判断输入框是否有内容				if(name.value.length==0){					confirm("用户名不能为空");					return false;				}				var pass = document.getElementById("pass");				if(pass.value.length==0){					confirm("密码不能为空");					return false;				}				return true;			}		</script>
+
